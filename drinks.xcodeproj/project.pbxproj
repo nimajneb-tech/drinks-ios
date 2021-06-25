@@ -20,11 +20,12 @@
 		1B751131268518F500C2E1F6 /* DrinksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */; };
 		1B7511332685190300C2E1F6 /* DrinksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511322685190300C2E1F6 /* DrinksListViewController.swift */; };
 		1B7511352685192100C2E1F6 /* DrinksListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511342685192100C2E1F6 /* DrinksListCell.swift */; };
-		1B7511372685192F00C2E1F6 /* DrinksListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511362685192F00C2E1F6 /* DrinksListCellViewModel.swift */; };
 		1B75113926851AF200C2E1F6 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113826851AF200C2E1F6 /* TabView.swift */; };
 		1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113B26851B1A00C2E1F6 /* SplashViewController.swift */; };
 		1B75113E26851B2200C2E1F6 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B75113D26851B2200C2E1F6 /* Splash.storyboard */; };
 		1B75114026851C7E00C2E1F6 /* DrinksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113F26851C7E00C2E1F6 /* DrinksRepository.swift */; };
+		1B7511442686197800C2E1F6 /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511432686197800C2E1F6 /* BoldText.swift */; };
+		1B75114726864C5400C2E1F6 /* ShadowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75114626864C5400C2E1F6 /* ShadowLabel.swift */; };
 		D9CFB0B5A8E6B964B5FFD59F /* Pods_drinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7661599A258D176E129DCA /* Pods_drinks.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,12 +45,13 @@
 		1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListViewModel.swift; sourceTree = "<group>"; };
 		1B7511322685190300C2E1F6 /* DrinksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListViewController.swift; sourceTree = "<group>"; };
 		1B7511342685192100C2E1F6 /* DrinksListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListCell.swift; sourceTree = "<group>"; };
-		1B7511362685192F00C2E1F6 /* DrinksListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListCellViewModel.swift; sourceTree = "<group>"; };
 		1B75113826851AF200C2E1F6 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		1B75113B26851B1A00C2E1F6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		1B75113D26851B2200C2E1F6 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		1B75113F26851C7E00C2E1F6 /* DrinksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksRepository.swift; sourceTree = "<group>"; };
 		1B75114126851CB200C2E1F6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1B7511432686197800C2E1F6 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
+		1B75114626864C5400C2E1F6 /* ShadowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLabel.swift; sourceTree = "<group>"; };
 		5B7661599A258D176E129DCA /* Pods_drinks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drinks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC717939220B33F945A3ECF /* Pods-drinks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drinks.release.xcconfig"; path = "Target Support Files/Pods-drinks/Pods-drinks.release.xcconfig"; sourceTree = "<group>"; };
 		C0F585763C85282C52D45BC4 /* Pods-drinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drinks.debug.xcconfig"; path = "Target Support Files/Pods-drinks/Pods-drinks.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +91,8 @@
 		1B7511052685172000C2E1F6 /* drinks */ = {
 			isa = PBXGroup;
 			children = (
+				1B75114526864C4800C2E1F6 /* Components */,
+				1B7511422686196D00C2E1F6 /* Extensions */,
 				1B75111D2685173B00C2E1F6 /* DataRepository */,
 				1B75111C2685173700C2E1F6 /* Models */,
 				1B75111B2685173300C2E1F6 /* Views */,
@@ -162,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				1B7511342685192100C2E1F6 /* DrinksListCell.swift */,
-				1B7511362685192F00C2E1F6 /* DrinksListCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -174,6 +177,22 @@
 				1B75113D26851B2200C2E1F6 /* Splash.storyboard */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		1B7511422686196D00C2E1F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B7511432686197800C2E1F6 /* BoldText.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1B75114526864C4800C2E1F6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1B75114626864C5400C2E1F6 /* ShadowLabel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		62A39471D01C3C7A15BF3E1B /* Frameworks */ = {
@@ -309,8 +328,10 @@
 			files = (
 				1B7511242685177D00C2E1F6 /* AppCordinator.swift in Sources */,
 				1B751126268517A100C2E1F6 /* DataRepository.swift in Sources */,
+				1B75114726864C5400C2E1F6 /* ShadowLabel.swift in Sources */,
 				1B75113926851AF200C2E1F6 /* TabView.swift in Sources */,
 				1B7511352685192100C2E1F6 /* DrinksListCell.swift in Sources */,
+				1B7511442686197800C2E1F6 /* BoldText.swift in Sources */,
 				1B751128268517B500C2E1F6 /* DataRepositoryFactory.swift in Sources */,
 				1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */,
 				1B751131268518F500C2E1F6 /* DrinksListViewModel.swift in Sources */,
@@ -318,7 +339,6 @@
 				1B75112F268518DD00C2E1F6 /* ApiError.swift in Sources */,
 				1B7511072685172000C2E1F6 /* AppDelegate.swift in Sources */,
 				1B7511332685190300C2E1F6 /* DrinksListViewController.swift in Sources */,
-				1B7511372685192F00C2E1F6 /* DrinksListCellViewModel.swift in Sources */,
 				1B75112D268518C900C2E1F6 /* Drink.swift in Sources */,
 				1B75114026851C7E00C2E1F6 /* DrinksRepository.swift in Sources */,
 				1B7511092685172000C2E1F6 /* SceneDelegate.swift in Sources */,

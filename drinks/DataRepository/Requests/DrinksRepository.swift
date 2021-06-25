@@ -9,17 +9,19 @@ import Foundation
 import RxSwift
 
 protocol DrinksRepository {
-    func getPopularDrinks() -> Observable<[Drink]>
+    func getPopularDrinks() -> Observable<EntDrink>
 }
 
 extension DataRepository: DrinksRepository {
-    func getPopularDrinks() -> Observable<[Drink]> {
     
-        let request = DataRepositoryRequest<Drink>(method: .get,
-                                                      endpoint: "https://the-cocktail-db.p.rapidapi.com/popular.php",
-                                                      params: nil,
-                                                      authorizationNeeded: true)
-        
-        return self.performRequest(request)
+    func getPopularDrinks() -> Observable<EntDrink> {
+        let request = DataRepositoryRequest<EntDrink>(method: .get,
+                                                        endpoint: "popular.php",
+                                                        params: nil,
+                                                        authorizationNeeded: true)
+
+        return self.performRequest(request).flatMap { (drink) -> Observable<EntDrink> in
+            return Observable<EntDrink>.of(drink.first!)
+        }
     }
 }
