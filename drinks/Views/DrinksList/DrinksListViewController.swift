@@ -16,7 +16,6 @@ class DrinksListViewController: UIViewController {
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
     
-    
     init(repository: DataRepository) {
         super.init(nibName: nil, bundle: nil)
         self.bindToViewModel(with: repository)
@@ -74,6 +73,13 @@ class DrinksListViewController: UIViewController {
 
 //MARK: - Extensions
 extension DrinksListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let drink = self.viewModel?.drinks[indexPath.section] {
+            let viewController = DrinksDetailViewController(drink: drink)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1

@@ -26,6 +26,8 @@
 		1B75114026851C7E00C2E1F6 /* DrinksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113F26851C7E00C2E1F6 /* DrinksRepository.swift */; };
 		1B7511442686197800C2E1F6 /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511432686197800C2E1F6 /* BoldText.swift */; };
 		1B75114726864C5400C2E1F6 /* ShadowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75114626864C5400C2E1F6 /* ShadowLabel.swift */; };
+		1B75114A2686507A00C2E1F6 /* DrinksDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511492686507A00C2E1F6 /* DrinksDetailViewController.swift */; };
+		1B75114C2686508400C2E1F6 /* DrinksDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75114B2686508400C2E1F6 /* DrinksDetailViewModel.swift */; };
 		D9CFB0B5A8E6B964B5FFD59F /* Pods_drinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7661599A258D176E129DCA /* Pods_drinks.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		1B75114126851CB200C2E1F6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1B7511432686197800C2E1F6 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		1B75114626864C5400C2E1F6 /* ShadowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLabel.swift; sourceTree = "<group>"; };
+		1B7511492686507A00C2E1F6 /* DrinksDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksDetailViewController.swift; sourceTree = "<group>"; };
+		1B75114B2686508400C2E1F6 /* DrinksDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksDetailViewModel.swift; sourceTree = "<group>"; };
 		5B7661599A258D176E129DCA /* Pods_drinks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drinks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC717939220B33F945A3ECF /* Pods-drinks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drinks.release.xcconfig"; path = "Target Support Files/Pods-drinks/Pods-drinks.release.xcconfig"; sourceTree = "<group>"; };
 		C0F585763C85282C52D45BC4 /* Pods-drinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drinks.debug.xcconfig"; path = "Target Support Files/Pods-drinks/Pods-drinks.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		1B75111F2685174E00C2E1F6 /* DrinksList */ = {
 			isa = PBXGroup;
 			children = (
+				1B7511482686506900C2E1F6 /* DrinksDetailView */,
 				1B7511202685175400C2E1F6 /* Cell */,
 				1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */,
 				1B7511322685190300C2E1F6 /* DrinksListViewController.swift */,
@@ -193,6 +198,15 @@
 				1B75114626864C5400C2E1F6 /* ShadowLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		1B7511482686506900C2E1F6 /* DrinksDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				1B7511492686507A00C2E1F6 /* DrinksDetailViewController.swift */,
+				1B75114B2686508400C2E1F6 /* DrinksDetailViewModel.swift */,
+			);
+			path = DrinksDetailView;
 			sourceTree = "<group>";
 		};
 		62A39471D01C3C7A15BF3E1B /* Frameworks */ = {
@@ -336,9 +350,11 @@
 				1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */,
 				1B751131268518F500C2E1F6 /* DrinksListViewModel.swift in Sources */,
 				1B75112B268518B800C2E1F6 /* DataRepositoryRequest.swift in Sources */,
+				1B75114C2686508400C2E1F6 /* DrinksDetailViewModel.swift in Sources */,
 				1B75112F268518DD00C2E1F6 /* ApiError.swift in Sources */,
 				1B7511072685172000C2E1F6 /* AppDelegate.swift in Sources */,
 				1B7511332685190300C2E1F6 /* DrinksListViewController.swift in Sources */,
+				1B75114A2686507A00C2E1F6 /* DrinksDetailViewController.swift in Sources */,
 				1B75112D268518C900C2E1F6 /* Drink.swift in Sources */,
 				1B75114026851C7E00C2E1F6 /* DrinksRepository.swift in Sources */,
 				1B7511092685172000C2E1F6 /* SceneDelegate.swift in Sources */,
