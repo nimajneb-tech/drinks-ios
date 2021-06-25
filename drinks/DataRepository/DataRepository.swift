@@ -88,6 +88,7 @@ class DataRepository {
     /// Request type must conform to both `Object` (realm) and `Codable`.  This enables automatic saving to database and json decoding.
     ///
     /// On any error the request is failed. If no internet then the stored data will be returned (only for .get requests).
+    
     func performRequest<T>(_ request: DataRepositoryRequest<T>) -> Observable<[T]> where T: Codable {
         return Observable.create { (observable) -> Disposable in
             
@@ -150,10 +151,10 @@ class DataRepository {
         
         var headers = HTTPHeaders()
         
-        if request.authorizationNeeded {
-            headers["x-rapidapi-key"] = self.apiKey
-            headers["x-rapidapi-host"] = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        }
+        headers = [
+            "x-rapidapi-key": self.apiKey,
+            "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+        ]
         
         if let multipart = request.multipartData {
             return AF.upload(multipartFormData: multipart,

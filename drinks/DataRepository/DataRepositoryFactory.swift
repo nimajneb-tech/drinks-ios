@@ -14,17 +14,17 @@ class DataRepositoryFactory {
     
     /// Returns the production repository
     private lazy var production: DataRepository = {
-        return DataRepository(baseUrl: "https://the-cocktail-db.p.rapidapi.com/popular.php", apiKey: "84c0f542admsh7703805c5e1ce9ep107f48jsnaf7a8cf91575")
+        return DataRepository(baseUrl: "https://the-cocktail-db.p.rapidapi.com", apiKey: "84c0f542admsh7703805c5e1ce9ep107f48jsnaf7a8cf91575")
     }()
     
     /// Returns the production repository
     private lazy var staging: DataRepository = {
-        return DataRepository(baseUrl: "https://the-cocktail-db.p.rapidapi.com/popular.php", apiKey: "84c0f542admsh7703805c5e1ce9ep107f48jsnaf7a8cf91575")
+        return DataRepository(baseUrl: "https://the-cocktail-db.p.rapidapi.com", apiKey: "84c0f542admsh7703805c5e1ce9ep107f48jsnaf7a8cf91575")
     }()
     
     //// Returns the localhost repository
     private lazy var localhost: DataRepository = {
-        return DataRepository(baseUrl: "https://the-cocktail-db.p.rapidapi.com/popular.php", apiKey: "84c0f542admsh7703805c5e1ce9ep107f48jsnaf7a8cf91575")
+        return DataRepository(baseUrl: "https://the-cocktail-db.p.rapidapi.com", apiKey: "84c0f542admsh7703805c5e1ce9ep107f48jsnaf7a8cf91575")
     }()
     
     /// Returns repository depending on build type

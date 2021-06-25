@@ -28,8 +28,8 @@ class DrinksListViewModel: NSObject {
     }
     
     func fetchPopularDrinks() {
-        self.repository.getPopularDrinks().subscribe(onNext: { (drinks) in
-            self.drinks = drinks
+        self.repository.getPopularDrinks().subscribe(onNext: { (allDrinks) in
+            self.drinks = allDrinks.drinks
         }, onError: { (error) in
         }).disposed(by: self.disposeBag)
     }
