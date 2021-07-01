@@ -17,7 +17,7 @@ class DrinksListViewController: ParentViewController {
     private let drinksTableView = UITableView()
     
     //MARK: - Initialize
-    init(repository: DataRepository) {
+    init(repository: DrinksRepository) {
         super.init(nibName: nil, bundle: nil)
         self.bindToViewModel(with: repository)
     }
@@ -34,7 +34,7 @@ class DrinksListViewController: ParentViewController {
     }
     
     //MARK: - Functions
-    func bindToViewModel(with repository: DataRepository) {
+    func bindToViewModel(with repository: DrinksRepository) {
         self.viewModel = DrinksListViewModel(repository: repository)
         self.viewModel?.bindDrinksListViewModelToController = {
             DispatchQueue.main.async {
