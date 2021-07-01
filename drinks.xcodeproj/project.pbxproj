@@ -24,10 +24,13 @@
 		1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113B26851B1A00C2E1F6 /* SplashViewController.swift */; };
 		1B75113E26851B2200C2E1F6 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B75113D26851B2200C2E1F6 /* Splash.storyboard */; };
 		1B75114026851C7E00C2E1F6 /* DrinksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113F26851C7E00C2E1F6 /* DrinksRepository.swift */; };
-		1B7511442686197800C2E1F6 /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511432686197800C2E1F6 /* BoldText.swift */; };
 		1B75114726864C5400C2E1F6 /* ShadowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75114626864C5400C2E1F6 /* ShadowLabel.swift */; };
 		1B75114A2686507A00C2E1F6 /* DrinksDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511492686507A00C2E1F6 /* DrinksDetailViewController.swift */; };
 		1B75114C2686508400C2E1F6 /* DrinksDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75114B2686508400C2E1F6 /* DrinksDetailViewModel.swift */; };
+		1B75114E268753C400C2E1F6 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75114D268753C400C2E1F6 /* ParentViewController.swift */; };
+		1BB4BF11268B4DA500C19D89 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4BF10268B4DA500C19D89 /* IngredientView.swift */; };
+		1BB4BF13268C693300C19D89 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4BF12268C693300C19D89 /* UIColorHex.swift */; };
+		1BB4BF15268C776100C19D89 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4BF14268C776100C19D89 /* InstructionsView.swift */; };
 		D9CFB0B5A8E6B964B5FFD59F /* Pods_drinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7661599A258D176E129DCA /* Pods_drinks.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,10 +55,13 @@
 		1B75113D26851B2200C2E1F6 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		1B75113F26851C7E00C2E1F6 /* DrinksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksRepository.swift; sourceTree = "<group>"; };
 		1B75114126851CB200C2E1F6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1B7511432686197800C2E1F6 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		1B75114626864C5400C2E1F6 /* ShadowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowLabel.swift; sourceTree = "<group>"; };
 		1B7511492686507A00C2E1F6 /* DrinksDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksDetailViewController.swift; sourceTree = "<group>"; };
 		1B75114B2686508400C2E1F6 /* DrinksDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksDetailViewModel.swift; sourceTree = "<group>"; };
+		1B75114D268753C400C2E1F6 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		1BB4BF10268B4DA500C19D89 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
+		1BB4BF12268C693300C19D89 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
+		1BB4BF14268C776100C19D89 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		5B7661599A258D176E129DCA /* Pods_drinks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drinks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC717939220B33F945A3ECF /* Pods-drinks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drinks.release.xcconfig"; path = "Target Support Files/Pods-drinks/Pods-drinks.release.xcconfig"; sourceTree = "<group>"; };
 		C0F585763C85282C52D45BC4 /* Pods-drinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drinks.debug.xcconfig"; path = "Target Support Files/Pods-drinks/Pods-drinks.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,7 +193,7 @@
 		1B7511422686196D00C2E1F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1B7511432686197800C2E1F6 /* BoldText.swift */,
+				1BB4BF12268C693300C19D89 /* UIColorHex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				1B75114626864C5400C2E1F6 /* ShadowLabel.swift */,
+				1B75114D268753C400C2E1F6 /* ParentViewController.swift */,
+				1BB4BF10268B4DA500C19D89 /* IngredientView.swift */,
+				1BB4BF14268C776100C19D89 /* InstructionsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -343,9 +352,10 @@
 				1B7511242685177D00C2E1F6 /* AppCordinator.swift in Sources */,
 				1B751126268517A100C2E1F6 /* DataRepository.swift in Sources */,
 				1B75114726864C5400C2E1F6 /* ShadowLabel.swift in Sources */,
+				1B75114E268753C400C2E1F6 /* ParentViewController.swift in Sources */,
+				1BB4BF15268C776100C19D89 /* InstructionsView.swift in Sources */,
 				1B75113926851AF200C2E1F6 /* TabView.swift in Sources */,
 				1B7511352685192100C2E1F6 /* DrinksListCell.swift in Sources */,
-				1B7511442686197800C2E1F6 /* BoldText.swift in Sources */,
 				1B751128268517B500C2E1F6 /* DataRepositoryFactory.swift in Sources */,
 				1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */,
 				1B751131268518F500C2E1F6 /* DrinksListViewModel.swift in Sources */,
@@ -353,9 +363,11 @@
 				1B75114C2686508400C2E1F6 /* DrinksDetailViewModel.swift in Sources */,
 				1B75112F268518DD00C2E1F6 /* ApiError.swift in Sources */,
 				1B7511072685172000C2E1F6 /* AppDelegate.swift in Sources */,
+				1BB4BF11268B4DA500C19D89 /* IngredientView.swift in Sources */,
 				1B7511332685190300C2E1F6 /* DrinksListViewController.swift in Sources */,
 				1B75114A2686507A00C2E1F6 /* DrinksDetailViewController.swift in Sources */,
 				1B75112D268518C900C2E1F6 /* Drink.swift in Sources */,
+				1BB4BF13268C693300C19D89 /* UIColorHex.swift in Sources */,
 				1B75114026851C7E00C2E1F6 /* DrinksRepository.swift in Sources */,
 				1B7511092685172000C2E1F6 /* SceneDelegate.swift in Sources */,
 			);

@@ -23,7 +23,7 @@ class DrinksListCell: UITableViewCell {
     
     private let drinkImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+       imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         

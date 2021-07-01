@@ -6,10 +6,9 @@
 //
 
 import Foundation
-
+import AVKit
 
 class DrinksDetailViewModel: NSObject {
-    
     private(set) var drink: Drink? {
         didSet {
             self.bindDrinkDetailViewModelToController()
@@ -18,4 +17,16 @@ class DrinksDetailViewModel: NSObject {
     
     var bindDrinkDetailViewModelToController : (() -> ()) = {}
     
+    func playVideo() -> AVPlayerViewController? {
+        if let videoUrl = self.drink?.strVideo {
+            let player = AVPlayer(url: URL(string: videoUrl)!)
+            let avPlayerVC = AVPlayerViewController()
+            
+            avPlayerVC.player = player
+            
+            return avPlayerVC
+        }
+
+        return nil
+    }
 }
