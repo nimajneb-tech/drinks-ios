@@ -21,7 +21,7 @@ class DrinksListViewModel: NSObject {
     
     var bindDrinksListViewModelToController : (() -> ()) = {}
     
-    init(repository: DataRepository) {
+    init(repository: DrinksRepository) {
         super.init()
         self.repository = repository
         self.fetchPopularDrinks()

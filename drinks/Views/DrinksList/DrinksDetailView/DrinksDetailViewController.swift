@@ -142,7 +142,7 @@ class DrinksDetailViewController: ParentViewController {
         instructionsView.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.top.equalTo(ingredientView.snp.bottom).offset(10)
+            make.top.equalTo(ingredientView.snp.bottom)
         }
         
         
@@ -158,8 +158,8 @@ class DrinksDetailViewController: ParentViewController {
                 make.leading.equalToSuperview()
                 make.trailing.equalToSuperview()
                 make.top.equalTo(self.videoHeader.snp.bottom).offset(10)
-                make.height.equalTo(200)
-                make.bottom.equalToSuperview().inset(10)
+                make.height.equalTo(self.view.bounds.height / 2.5)
+                make.bottom.equalToSuperview()
             }
         }
     }
