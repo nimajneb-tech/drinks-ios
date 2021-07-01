@@ -10,12 +10,13 @@ import UIKit
 
 class InstructionsView: UIView {
     
+    //MARK: - Internal variables
     private let instructionsHeader: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .center
         label.textColor = .black
-        label.alpha = 0.5
+        label.alpha = 0.7
         label.text = "Instructions"
         
         return label
@@ -37,7 +38,7 @@ class InstructionsView: UIView {
     
     private var instructions: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .darkGray
         label.numberOfLines = 0
         
@@ -46,7 +47,8 @@ class InstructionsView: UIView {
     
     private var drink: Drink?
     
-    init(drink: Drink) {
+    //MARK: - Initialize
+    init(drink: Drink?) {
         super.init(frame: CGRect())
         self.drink = drink
         self.setupView()
@@ -57,7 +59,7 @@ class InstructionsView: UIView {
     }
     
     //MARK: - Setup UI
-    
+    /// create UI and setup constraints
     func setupView() {
         self.addSubview(self.stackContainerView)
         
@@ -83,7 +85,7 @@ class InstructionsView: UIView {
         }
         
         if let _drink = self.drink {
-            self.instructions.text = _drink.strInstructions.replacingOccurrences(of: ".", with: ".\n")
+            self.instructions.text = _drink.strInstructions.replacingOccurrences(of: ". ", with: ".\n")
         }
     }
 }

@@ -10,12 +10,13 @@ import UIKit
 
 class IngredientView: UIView {
     
+    //MARK: - Internal variables
     private let ingredientsHeader: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .center
         label.textColor = .black
-        label.alpha = 0.5
+        label.alpha = 0.7
         label.text = "Ingredients"
         
         return label
@@ -55,7 +56,8 @@ class IngredientView: UIView {
     
     private var drink: Drink?
     
-    init(drink: Drink) {
+    //MARK: - Initialize
+    init(drink: Drink?) {
         super.init(frame: CGRect())
         self.drink = drink
         self.setupView()
@@ -66,7 +68,7 @@ class IngredientView: UIView {
     }
     
     //MARK: - Setup UI
-    
+    /// create UI and setup constraints
     func setupView() {
         self.addSubview(self.stackContainerView)
         
@@ -102,6 +104,7 @@ class IngredientView: UIView {
                 label.text = ingredient
                 label.textColor = .darkGray
                 label.textAlignment = .left
+                label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
                 
                 self.ingredientStackView.addArrangedSubview(label)
             }

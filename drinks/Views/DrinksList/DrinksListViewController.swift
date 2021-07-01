@@ -16,6 +16,7 @@ class DrinksListViewController: ParentViewController {
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
     
+    //MARK: - Initialize
     init(repository: DataRepository) {
         super.init(nibName: nil, bundle: nil)
         self.bindToViewModel(with: repository)
@@ -43,6 +44,7 @@ class DrinksListViewController: ParentViewController {
     }
     
     //MARK: - Setup UI
+    /// create UI and setup constraints
     func setupTableView() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always

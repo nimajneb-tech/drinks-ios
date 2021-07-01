@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 import SnapKit
+import WebKit
+import RxSwift
+import RxGesture
 
 class DrinksDetailViewController: ParentViewController {
     
     //MARK: - Internal Variables
+    private let disposeBag = DisposeBag()
+    
     private let drinkImage: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -44,29 +49,24 @@ class DrinksDetailViewController: ParentViewController {
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .center
         label.textColor = .black
-        label.alpha = 0.5
+        label.alpha = 0.7
         label.text = "Video"
         
         return label
     }()
     
-    private let videoImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
+    private let videoView: WKWebView = {
+        let webView = WKWebView()
         
-        return imageView
+        return webView
     }()
     
     private var viewModel: DrinksDetailViewModel?
-    private var drink: Drink?
     
+    //MARK: - Initialize
     init(drink: Drink) {
         super.init(nibName: nil, bundle: nil)
-        self.drink = drink
-        self.drinkImage.sd_setImage(with: URL(string: drink.strDrinkThumb), placeholderImage: UIImage(named: "default_image"))
-        self.drinkTitle.text = drink.strDrink
-        self.setupView()
+        self.bindToViewModel(with: drink)
     }
     
     required init?(coder: NSCoder) {
@@ -76,25 +76,28 @@ class DrinksDetailViewController: ParentViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
+        self.setupActions()
     }
     
     func bindToViewModel(with drink: Drink) {
-        self.viewModel = DrinksDetailViewModel()
-        
-        self.viewModel?.bindDrinkDetailViewModelToController = {
-            self.setupView()
+        self.viewModel = DrinksDetailViewModel(drink: drink)
+        self.drinkImage.sd_setImage(with: self.viewModel?.thumbUrl, placeholderImage: UIImage(named: "default_image"))
+        self.drinkTitle.text = self.viewModel?.displayDrinkName
+    }
+    
+    //MARK: - Setup Actions
+    func setupActions() {
+        DispatchQueue.main.async {
+            if let request = self.viewModel?.loadVideo() {
+                self.videoView.load(request)
+            }
         }
     }
     
-    //MARK: - Actions
-    func playVideo() {
-        self.present(self.viewModel?.playVideo() as! UIViewController, animated: true)
-    }
-    
     //MARK: - Setup UI
+    /// create UI and setup constraints
     func setupView() {
-        guard let _drink = self.drink else { return }
-        
         self.view.addSubview(self.drinkImage)
         self.drinkImage.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
@@ -125,7 +128,7 @@ class DrinksDetailViewController: ParentViewController {
             make.bottom.equalToSuperview()
         }
         
-        let ingredientView = IngredientView(drink: _drink)
+        let ingredientView = IngredientView(drink: self.viewModel?.drink)
         self.scrollContentView.addSubview(ingredientView)
         ingredientView.snp.makeConstraints { (make) in
             make.width.equalTo(UIScreen.main.bounds.width)
@@ -134,7 +137,7 @@ class DrinksDetailViewController: ParentViewController {
             make.trailing.equalToSuperview()
         }
         
-        let instructionsView = InstructionsView(drink: _drink)
+        let instructionsView = InstructionsView(drink: self.viewModel?.drink)
         self.scrollContentView.addSubview(instructionsView)
         instructionsView.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
@@ -142,11 +145,22 @@ class DrinksDetailViewController: ParentViewController {
             make.top.equalTo(ingredientView.snp.bottom).offset(10)
         }
         
-        self.scrollContentView.addSubview(self.videoHeader)
-        self.videoHeader.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalTo(instructionsView.snp.bottom).offset(10)
-            make.bottom.equalToSuperview()
+        
+        if self.viewModel?.drink?.strVideo != nil {
+            self.scrollContentView.addSubview(self.videoHeader)
+            self.videoHeader.snp.makeConstraints { (make) in
+                make.leading.equalToSuperview().offset(10)
+                make.top.equalTo(instructionsView.snp.bottom).offset(10)
+            }
+            
+            self.scrollContentView.addSubview(self.videoView)
+            self.videoView.snp.makeConstraints { (make) in
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+                make.top.equalTo(self.videoHeader.snp.bottom).offset(10)
+                make.height.equalTo(200)
+                make.bottom.equalToSuperview().inset(10)
+            }
         }
     }
 }
