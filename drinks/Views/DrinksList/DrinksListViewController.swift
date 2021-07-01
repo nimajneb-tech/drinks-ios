@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 import SnapKit
 
-class DrinksListViewController: UIViewController {
+class DrinksListViewController: ParentViewController {
     
     //MARK: - Internal Variables
     private var viewModel: DrinksListViewModel?
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
     
-    
+    //MARK: - Initialize
     init(repository: DataRepository) {
         super.init(nibName: nil, bundle: nil)
         self.bindToViewModel(with: repository)
@@ -30,7 +30,6 @@ class DrinksListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setGradientBackground()
         self.setupTableView()
     }
     
@@ -45,6 +44,7 @@ class DrinksListViewController: UIViewController {
     }
     
     //MARK: - Setup UI
+    /// create UI and setup constraints
     func setupTableView() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
@@ -58,22 +58,18 @@ class DrinksListViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-    
-    func setGradientBackground() {
-        let colorTop =  UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor
-                    
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-                
-        self.view.layer.insertSublayer(gradientLayer, at:0)
-    }
 }
 
 //MARK: - Extensions
 extension DrinksListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let drink = self.viewModel?.drinks[indexPath.section] else { return }
+        let viewController = DrinksDetailViewController(drink: drink)
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1

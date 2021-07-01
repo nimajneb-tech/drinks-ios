@@ -12,6 +12,7 @@ import SDWebImage
 
 class DrinksListCell: UITableViewCell {
     
+    //MARK: - Internal variables
     private let headerTitle: ShadowLabel = {
         let label = ShadowLabel()
         label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
@@ -23,7 +24,7 @@ class DrinksListCell: UITableViewCell {
     
     private let drinkImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+       imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         
@@ -47,7 +48,7 @@ class DrinksListCell: UITableViewCell {
     }()
     
     
-    // MARK: - Init
+    // MARK: - Initialize
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -61,6 +62,7 @@ class DrinksListCell: UITableViewCell {
         super.layoutSubviews()
     }
     
+    //MARK: - Configure cell values
     func configureCell(with drink: Drink) {
         self.headerTitle.text = drink.strDrink
         self.headerSubtitle.text = drink.strCategory
