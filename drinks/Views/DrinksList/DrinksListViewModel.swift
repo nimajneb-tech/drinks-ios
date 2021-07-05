@@ -1,5 +1,5 @@
 //
-//  PopularDrinksListViewModel.swift
+//  DrinksListViewModel.swift
 //  drinks
 //
 //  Created by Benjamin on 24/06/2021.
@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class PopularDrinksListViewModel: NSObject {
+class DrinksListViewModel: NSObject {
     
     private var repository: DrinksRepository!
     private var disposeBag = DisposeBag()

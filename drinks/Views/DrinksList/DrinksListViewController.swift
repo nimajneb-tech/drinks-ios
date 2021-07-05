@@ -1,5 +1,5 @@
 //
-//  PopularDrinksListViewController.swift
+//  DrinksListViewController.swift
 //  drinks
 //
 //  Created by Benjamin on 24/06/2021.
@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import SnapKit
 
-class PopularDrinksListViewController: ParentViewController {
+class DrinksListViewController: ParentViewController {
     
     //MARK: - Internal Variables
-    private var viewModel: PopularDrinksListViewModel?
+    private var viewModel: DrinksListViewModel?
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
     
@@ -42,7 +42,7 @@ class PopularDrinksListViewController: ParentViewController {
     
     //MARK: - Functions
     func bindToViewModel(with repository: DrinksRepository) {
-        self.viewModel = PopularDrinksListViewModel(repository: repository)
+        self.viewModel = DrinksListViewModel(repository: repository)
        
         self.viewModel?.bindDrinksListViewModelToController = {
             DispatchQueue.main.async {
@@ -69,7 +69,7 @@ class PopularDrinksListViewController: ParentViewController {
 }
 
 //MARK: - Extensions
-extension PopularDrinksListViewController: UITableViewDelegate, UITableViewDataSource {
+extension DrinksListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let drink = self.viewModel?.drinks[indexPath.section] else { return }
