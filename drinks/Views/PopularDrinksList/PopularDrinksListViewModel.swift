@@ -1,5 +1,5 @@
 //
-//  DrinksListViewModel.swift
+//  PopularDrinksListViewModel.swift
 //  drinks
 //
 //  Created by Benjamin on 24/06/2021.
@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class DrinksListViewModel: NSObject {
+class PopularDrinksListViewModel: NSObject {
     
     private var repository: DrinksRepository!
     private var disposeBag = DisposeBag()
@@ -24,11 +24,17 @@ class DrinksListViewModel: NSObject {
     init(repository: DrinksRepository) {
         super.init()
         self.repository = repository
-        self.fetchPopularDrinks()
     }
     
     func fetchPopularDrinks() {
         self.repository.getPopularDrinks().subscribe(onNext: { (allDrinks) in
+            self.drinks = allDrinks.drinks
+        }, onError: { (error) in
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func fetchLatestDrinks() {
+        self.repository.getLatestDrinks().subscribe(onNext: { (allDrinks) in
             self.drinks = allDrinks.drinks
         }, onError: { (error) in
         }).disposed(by: self.disposeBag)

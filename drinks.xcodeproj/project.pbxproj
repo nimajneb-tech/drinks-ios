@@ -17,8 +17,8 @@
 		1B75112B268518B800C2E1F6 /* DataRepositoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75112A268518B800C2E1F6 /* DataRepositoryRequest.swift */; };
 		1B75112D268518C900C2E1F6 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75112C268518C900C2E1F6 /* Drink.swift */; };
 		1B75112F268518DD00C2E1F6 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75112E268518DD00C2E1F6 /* ApiError.swift */; };
-		1B751131268518F500C2E1F6 /* DrinksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */; };
-		1B7511332685190300C2E1F6 /* DrinksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511322685190300C2E1F6 /* DrinksListViewController.swift */; };
+		1B751131268518F500C2E1F6 /* PopularDrinksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B751130268518F500C2E1F6 /* PopularDrinksListViewModel.swift */; };
+		1B7511332685190300C2E1F6 /* PopularDrinksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511322685190300C2E1F6 /* PopularDrinksListViewController.swift */; };
 		1B7511352685192100C2E1F6 /* DrinksListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7511342685192100C2E1F6 /* DrinksListCell.swift */; };
 		1B75113926851AF200C2E1F6 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113826851AF200C2E1F6 /* TabView.swift */; };
 		1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B75113B26851B1A00C2E1F6 /* SplashViewController.swift */; };
@@ -47,8 +47,8 @@
 		1B75112A268518B800C2E1F6 /* DataRepositoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryRequest.swift; sourceTree = "<group>"; };
 		1B75112C268518C900C2E1F6 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		1B75112E268518DD00C2E1F6 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListViewModel.swift; sourceTree = "<group>"; };
-		1B7511322685190300C2E1F6 /* DrinksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListViewController.swift; sourceTree = "<group>"; };
+		1B751130268518F500C2E1F6 /* PopularDrinksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDrinksListViewModel.swift; sourceTree = "<group>"; };
+		1B7511322685190300C2E1F6 /* PopularDrinksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDrinksListViewController.swift; sourceTree = "<group>"; };
 		1B7511342685192100C2E1F6 /* DrinksListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListCell.swift; sourceTree = "<group>"; };
 		1B75113826851AF200C2E1F6 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		1B75113B26851B1A00C2E1F6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +127,9 @@
 		1B75111B2685173300C2E1F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1B7511482686506900C2E1F6 /* DrinksDetailView */,
 				1B75113A26851B0700C2E1F6 /* Splash */,
-				1B75111F2685174E00C2E1F6 /* DrinksList */,
+				1B75111F2685174E00C2E1F6 /* PopularDrinksList */,
 				1B75113826851AF200C2E1F6 /* TabView.swift */,
 			);
 			path = Views;
@@ -162,15 +163,14 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		1B75111F2685174E00C2E1F6 /* DrinksList */ = {
+		1B75111F2685174E00C2E1F6 /* PopularDrinksList */ = {
 			isa = PBXGroup;
 			children = (
-				1B7511482686506900C2E1F6 /* DrinksDetailView */,
 				1B7511202685175400C2E1F6 /* Cell */,
-				1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */,
-				1B7511322685190300C2E1F6 /* DrinksListViewController.swift */,
+				1B751130268518F500C2E1F6 /* PopularDrinksListViewModel.swift */,
+				1B7511322685190300C2E1F6 /* PopularDrinksListViewController.swift */,
 			);
-			path = DrinksList;
+			path = PopularDrinksList;
 			sourceTree = "<group>";
 		};
 		1B7511202685175400C2E1F6 /* Cell */ = {
@@ -358,13 +358,13 @@
 				1B7511352685192100C2E1F6 /* DrinksListCell.swift in Sources */,
 				1B751128268517B500C2E1F6 /* DataRepositoryFactory.swift in Sources */,
 				1B75113C26851B1A00C2E1F6 /* SplashViewController.swift in Sources */,
-				1B751131268518F500C2E1F6 /* DrinksListViewModel.swift in Sources */,
+				1B751131268518F500C2E1F6 /* PopularDrinksListViewModel.swift in Sources */,
 				1B75112B268518B800C2E1F6 /* DataRepositoryRequest.swift in Sources */,
 				1B75114C2686508400C2E1F6 /* DrinksDetailViewModel.swift in Sources */,
 				1B75112F268518DD00C2E1F6 /* ApiError.swift in Sources */,
 				1B7511072685172000C2E1F6 /* AppDelegate.swift in Sources */,
 				1BB4BF11268B4DA500C19D89 /* IngredientView.swift in Sources */,
-				1B7511332685190300C2E1F6 /* DrinksListViewController.swift in Sources */,
+				1B7511332685190300C2E1F6 /* PopularDrinksListViewController.swift in Sources */,
 				1B75114A2686507A00C2E1F6 /* DrinksDetailViewController.swift in Sources */,
 				1B75112D268518C900C2E1F6 /* Drink.swift in Sources */,
 				1BB4BF13268C693300C19D89 /* UIColorHex.swift in Sources */,

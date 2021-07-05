@@ -26,7 +26,7 @@ class IngredientView: UIView {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 15
         
         return stackView
     }()
@@ -35,7 +35,7 @@ class IngredientView: UIView {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 15
         
         return stackView
     }()

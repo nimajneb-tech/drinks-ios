@@ -1,5 +1,5 @@
 //
-//  DrinksListViewController.swift
+//  PopularDrinksListViewController.swift
 //  drinks
 //
 //  Created by Benjamin on 24/06/2021.
@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import SnapKit
 
-class DrinksListViewController: ParentViewController {
+class PopularDrinksListViewController: ParentViewController {
     
     //MARK: - Internal Variables
-    private var viewModel: DrinksListViewModel?
+    private var viewModel: PopularDrinksListViewModel?
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
     
@@ -29,13 +29,21 @@ class DrinksListViewController: ParentViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupTableView()
+        if let titleString =  self.navigationItem.title {
+            if titleString == "Popular" {
+                self.viewModel?.fetchPopularDrinks()
+            } else {
+                print(titleString)
+                self.viewModel?.fetchLatestDrinks()
+            }
+        }
     }
     
     //MARK: - Functions
     func bindToViewModel(with repository: DrinksRepository) {
-        self.viewModel = DrinksListViewModel(repository: repository)
+        self.viewModel = PopularDrinksListViewModel(repository: repository)
+       
         self.viewModel?.bindDrinksListViewModelToController = {
             DispatchQueue.main.async {
                 self.drinksTableView.reloadData()
@@ -61,7 +69,7 @@ class DrinksListViewController: ParentViewController {
 }
 
 //MARK: - Extensions
-extension DrinksListViewController: UITableViewDelegate, UITableViewDataSource {
+extension PopularDrinksListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let drink = self.viewModel?.drinks[indexPath.section] else { return }

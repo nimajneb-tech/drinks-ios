@@ -26,43 +26,63 @@ struct Drink: Codable {
         var allIngredients: [String] = []
         
         if let ingredient = self.strIngredient1 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient2 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient3 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient4 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient5 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient6 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient7 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient8 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient9 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         if let ingredient = self.strIngredient10 {
-            allIngredients.append(ingredient)
+            if !ingredient.isEmpty {
+                allIngredients.append(ingredient)
+            }
         }
         
         return allIngredients
@@ -72,43 +92,63 @@ struct Drink: Codable {
         var allMeasures: [String] = []
         
         if let measure = self.strMeasure1 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure2 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure3 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure4 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure5 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure6 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure7 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure8 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure9 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         if let measure = self.strMeasure10 {
-            allMeasures.append(measure)
+            if !measure.isEmpty {
+                allMeasures.append(measure)
+            }
         }
         
         return allMeasures

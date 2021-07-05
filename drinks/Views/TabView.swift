@@ -31,8 +31,8 @@ class TabView: UITabBarController {
     //UI setup
     private func setupVCs(){
         viewControllers = [
-            self.createNavControllers(for: DrinksListViewController(repository: self.repository), title: "Popular", image: UIImage(systemName: "list.dash")!),
-            self.createNavControllers(for: DrinksListViewController(repository: self.repository), title: "Latest", image: UIImage(systemName: "list.dash")!)
+            self.createNavControllers(for: PopularDrinksListViewController(repository: self.repository), title: "Popular", image: UIImage(systemName: "list.dash")!),
+            self.createNavControllers(for: PopularDrinksListViewController(repository: self.repository), title: "Latest", image: UIImage(systemName: "list.dash")!)
         ]
     }
     
