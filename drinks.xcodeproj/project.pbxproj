@@ -127,6 +127,7 @@
 		1B75111B2685173300C2E1F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1B7511482686506900C2E1F6 /* DrinksDetailView */,
 				1B75113A26851B0700C2E1F6 /* Splash */,
 				1B75111F2685174E00C2E1F6 /* DrinksList */,
 				1B75113826851AF200C2E1F6 /* TabView.swift */,
@@ -165,7 +166,6 @@
 		1B75111F2685174E00C2E1F6 /* DrinksList */ = {
 			isa = PBXGroup;
 			children = (
-				1B7511482686506900C2E1F6 /* DrinksDetailView */,
 				1B7511202685175400C2E1F6 /* Cell */,
 				1B751130268518F500C2E1F6 /* DrinksListViewModel.swift */,
 				1B7511322685190300C2E1F6 /* DrinksListViewController.swift */,

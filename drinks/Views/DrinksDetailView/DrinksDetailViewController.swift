@@ -129,6 +129,7 @@ class DrinksDetailViewController: ParentViewController {
         }
         
         let ingredientView = IngredientView(drink: self.viewModel?.drink)
+        ingredientView.setContentHuggingPriority(.defaultLow, for: .vertical)
         self.scrollContentView.addSubview(ingredientView)
         ingredientView.snp.makeConstraints { (make) in
             make.width.equalTo(UIScreen.main.bounds.width)
@@ -143,10 +144,17 @@ class DrinksDetailViewController: ParentViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalTo(ingredientView.snp.bottom)
+            make.bottom.equalToSuperview().inset(40)
         }
         
-        
         if self.viewModel?.drink?.strVideo != nil {
+            
+            instructionsView.snp.remakeConstraints { (remake) in
+                remake.leading.equalToSuperview()
+                remake.trailing.equalToSuperview()
+                remake.top.equalTo(ingredientView.snp.bottom)
+            }
+
             self.scrollContentView.addSubview(self.videoHeader)
             self.videoHeader.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(10)

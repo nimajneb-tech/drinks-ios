@@ -29,13 +29,21 @@ class DrinksListViewController: ParentViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupTableView()
+        if let titleString =  self.navigationItem.title {
+            if titleString == "Popular" {
+                self.viewModel?.fetchPopularDrinks()
+            } else {
+                print(titleString)
+                self.viewModel?.fetchLatestDrinks()
+            }
+        }
     }
     
     //MARK: - Functions
     func bindToViewModel(with repository: DrinksRepository) {
         self.viewModel = DrinksListViewModel(repository: repository)
+       
         self.viewModel?.bindDrinksListViewModelToController = {
             DispatchQueue.main.async {
                 self.drinksTableView.reloadData()
