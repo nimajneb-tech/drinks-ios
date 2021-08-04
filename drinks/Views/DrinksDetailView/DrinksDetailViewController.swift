@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import WebKit
 import RxSwift
-import RxGesture
 
 class DrinksDetailViewController: ParentViewController {
     
@@ -59,6 +58,12 @@ class DrinksDetailViewController: ParentViewController {
         let webView = WKWebView()
         
         return webView
+    }()
+    
+    private let favoritIcon: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
     }()
     
     private var viewModel: DrinksDetailViewModel?
