@@ -39,4 +39,11 @@ class DrinksListViewModel: NSObject {
         }, onError: { (error) in
         }).disposed(by: self.disposeBag)
     }
+    
+    func fetchRandomDrinks() {
+        self.repository.getRandomDrinks().subscribe(onNext: { (allDrinks) in
+            self.drinks = allDrinks.drinks
+        }, onError: { (error) in
+        }).disposed(by: self.disposeBag)
+    }
 }
