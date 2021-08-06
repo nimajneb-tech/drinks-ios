@@ -10,7 +10,7 @@ import RxSwift
 
 protocol DrinksRepository {
     func getPopularDrinks() -> Observable<EntDrink>
-    func getLatestDrinks() -> Observable<EntDrink>
+    func getFavoriteDrink(drinkId: String) -> Observable<EntDrink>
     func getRandomDrinks() -> Observable<EntDrink>
 }
 
@@ -27,9 +27,9 @@ extension DataRepository: DrinksRepository {
         }
     }
     
-    func getLatestDrinks() -> Observable<EntDrink> {
+    func getFavoriteDrink(drinkId: String) -> Observable<EntDrink> {
         let request = DataRepositoryRequest<EntDrink>(method: .get,
-                                                        endpoint: "latest.php",
+                                                        endpoint: "lookup.php?i=\(drinkId)",
                                                         params: nil,
                                                         authorizationNeeded: true)
 

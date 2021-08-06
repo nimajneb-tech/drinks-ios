@@ -47,4 +47,8 @@ class DrinksDetailViewModel: NSObject {
         }
         return nil
     }
+    
+    func addDrinkToFavorite() {
+        CacheManager.shared.setFavoriteDrink(drinkId: self.drink!.idDrink)
+    }
 }

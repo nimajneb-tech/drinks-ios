@@ -8,37 +8,28 @@
 import Foundation
 
 struct CacheKeys {
-    static let user: String = "user"
     static let drinkId: String = "drinkIds"
 }
 
 class CacheManager {
     
     static let shared = CacheManager()
-    private var _user: User?
-
-    var user: User {
-        get {
-            guard let _value = _user else {
-                
-                let decoded  = UserDefaults.standard.data(forKey: CacheKeys.user)
-                guard let _decoded = decoded else {
-                    _user = User()
-                    return _user ?? User()
-                }
-                
-                _user = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(_decoded) as? User)
-                return _user ?? User()
-            }
-            return _value
+    private let userDefaults = UserDefaults.standard
+    
+    func getFavoriteDrinks() -> [String] {
+        let arrayOfDrinks = userDefaults.stringArray(forKey: CacheKeys.drinkId) ?? [String]()
+        
+        return arrayOfDrinks
+    }
+    
+    func setFavoriteDrink(drinkId: String) {
+        var arrayOfDrinks = userDefaults.stringArray(forKey: CacheKeys.drinkId) ?? [String]()
+        if let index = arrayOfDrinks.firstIndex(of: drinkId) {
+            arrayOfDrinks.remove(at: index)
+        } else {
+            arrayOfDrinks.append(drinkId)
         }
         
-        set {
-            
-            _user = newValue
-            let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: _user as Any, requiringSecureCoding: false)
-            UserDefaults.standard.set(encodedData, forKey: CacheKeys.user)
-            UserDefaults.standard.synchronize()
-        }
+        userDefaults.setValue(arrayOfDrinks, forKey: CacheKeys.drinkId)
     }
 }
