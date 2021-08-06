@@ -115,9 +115,20 @@ class DrinksDetailViewController: ParentViewController {
         }
     }
     
+    //MARK: - Actions
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     //MARK: - Setup UI
     /// create UI and setup constraints
     func setupView() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
+        
         self.setFavoriteIcon()
         self.view.addSubview(self.drinkImage)
         self.drinkImage.snp.makeConstraints { (make) in
