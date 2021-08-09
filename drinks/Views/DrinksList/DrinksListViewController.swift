@@ -17,6 +17,7 @@ class DrinksListViewController: ParentViewController {
     private var viewModel: DrinksListViewModel?
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
+    private let refreshControl = UIRefreshControl()
     
     //MARK: - Initialize
     init(repository: DrinksRepository) {
@@ -45,13 +46,13 @@ class DrinksListViewController: ParentViewController {
         }
     }
     
+    /// Fetch data based on the title of the viewcontroller
     func fetchDataBasedOnTitle() {
-        
         switch self.navigationItem.title {
         case "Popular":
             self.viewModel?.fetchPopularDrinks()
-        case "Latest":
-            self.viewModel?.fetchLatestDrinks()
+        case "Favorites":
+            self.viewModel?.fetchFavoriteDrinks()
         case "Random":
             self.viewModel?.fetchRandomDrinks()
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(self.refreshDrinksButtonClicked))
@@ -73,8 +74,18 @@ class DrinksListViewController: ParentViewController {
         self.drinksTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.drinksTableView.addSubview(refreshControl)
     }
     
+    // TableView pull to refresh method.
+    @objc func refresh(_ sender: AnyObject) {
+        self.fetchDataBasedOnTitle()
+        self.refreshControl.endRefreshing()
+    }
+    
+    // Refresh random drinks
     @objc private func refreshDrinksButtonClicked() {
         self.viewModel?.fetchRandomDrinks()
     }
@@ -126,4 +137,3 @@ extension DrinksListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-

@@ -62,6 +62,7 @@ class DrinksDetailViewController: ParentViewController {
     
     private let favoritIcon: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "star")
         
         return imageView
     }()
@@ -100,9 +101,35 @@ class DrinksDetailViewController: ParentViewController {
         }
     }
     
+    @objc private func favoriteButtonClicked() {
+        self.viewModel?.addDrinkToFavorite()
+        self.setFavoriteIcon()
+    }
+    
+    func setFavoriteIcon() {
+        if CacheManager.shared.getFavoriteDrinks().contains((self.viewModel?.drink!.idDrink)!) {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(self.favoriteButtonClicked))
+            
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(self.favoriteButtonClicked))
+        }
+    }
+    
+    //MARK: - Actions
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     //MARK: - Setup UI
     /// create UI and setup constraints
     func setupView() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        self.setFavoriteIcon()
         self.view.addSubview(self.drinkImage)
         self.drinkImage.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
@@ -153,13 +180,12 @@ class DrinksDetailViewController: ParentViewController {
         }
         
         if self.viewModel?.drink?.strVideo != nil {
-            
             instructionsView.snp.remakeConstraints { (remake) in
                 remake.leading.equalToSuperview()
                 remake.trailing.equalToSuperview()
                 remake.top.equalTo(ingredientView.snp.bottom)
             }
-
+            
             self.scrollContentView.addSubview(self.videoHeader)
             self.videoHeader.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(10)
