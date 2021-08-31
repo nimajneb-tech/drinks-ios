@@ -33,8 +33,19 @@ class DrinksListViewModel: NSObject {
         }).disposed(by: self.disposeBag)
     }
     
-    func fetchLatestDrinks() {
-        self.repository.getLatestDrinks().subscribe(onNext: { (allDrinks) in
+    func fetchFavoriteDrinks() {
+        self.drinks = []
+        for drinkId in CacheManager.shared.getFavoriteDrinks() {
+            self.repository.getFavoriteDrink(drinkId: drinkId).subscribe(onNext: { (favoriteDrinks) in
+                guard let drink = favoriteDrinks.drinks.first else { return }
+                self.drinks.append(drink)
+            }, onError: { (error) in
+            }).disposed(by: self.disposeBag)
+        }
+    }
+    
+    func fetchRandomDrinks() {
+        self.repository.getRandomDrinks().subscribe(onNext: { (allDrinks) in
             self.drinks = allDrinks.drinks
         }, onError: { (error) in
         }).disposed(by: self.disposeBag)

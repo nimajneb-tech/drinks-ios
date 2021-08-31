@@ -12,10 +12,13 @@ struct EntDrink: Codable {
     let drinks: [Drink]
 }
 
+
 // MARK: - EntDrinkElement
 struct Drink: Codable {
+    
+    let idDrink: String
     let strDrink: String
-    var strVideo: String?
+    let strVideo: String?
     let strCategory, strAlcoholic, strGlass: String
     let strInstructions: String
     let strDrinkThumb: String

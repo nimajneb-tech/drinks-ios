@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class DrinksListViewController: ParentViewController {
     
@@ -15,6 +17,7 @@ class DrinksListViewController: ParentViewController {
     private var viewModel: DrinksListViewModel?
     private let cellId = "recipesCell"
     private let drinksTableView = UITableView()
+    private let refreshControl = UIRefreshControl()
     
     //MARK: - Initialize
     init(repository: DrinksRepository) {
@@ -30,24 +33,30 @@ class DrinksListViewController: ParentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        if let titleString =  self.navigationItem.title {
-            if titleString == "Popular" {
-                self.viewModel?.fetchPopularDrinks()
-            } else {
-                print(titleString)
-                self.viewModel?.fetchLatestDrinks()
-            }
-        }
+        self.fetchDataBasedOnTitle()
     }
     
     //MARK: - Functions
     func bindToViewModel(with repository: DrinksRepository) {
         self.viewModel = DrinksListViewModel(repository: repository)
-       
         self.viewModel?.bindDrinksListViewModelToController = {
             DispatchQueue.main.async {
                 self.drinksTableView.reloadData()
             }
+        }
+    }
+    
+    /// Fetch data based on the title of the viewcontroller
+    func fetchDataBasedOnTitle() {
+        switch self.navigationItem.title {
+        case "Popular":
+            self.viewModel?.fetchPopularDrinks()
+        case "Favorites":
+            self.viewModel?.fetchFavoriteDrinks()
+        case "Random":
+            self.viewModel?.fetchRandomDrinks()
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(self.refreshDrinksButtonClicked))
+        default: break
         }
     }
     
@@ -65,6 +74,20 @@ class DrinksListViewController: ParentViewController {
         self.drinksTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.drinksTableView.addSubview(refreshControl)
+    }
+    
+    // TableView pull to refresh method.
+    @objc func refresh(_ sender: AnyObject) {
+        self.fetchDataBasedOnTitle()
+        self.refreshControl.endRefreshing()
+    }
+    
+    // Refresh random drinks
+    @objc private func refreshDrinksButtonClicked() {
+        self.viewModel?.fetchRandomDrinks()
     }
 }
 
@@ -114,4 +137,3 @@ extension DrinksListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
