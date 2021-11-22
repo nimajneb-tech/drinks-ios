@@ -14,14 +14,6 @@ import RxSwift
 ///
 /// The main data repository that handles fetching and storing of the API
 ///
-/// All requests will be store in a local realm database and if there is no internet the stored data
-/// will be returned. This enables the app to work offline.
-///
-/// Posting in offlne mode will return a `notSupportedWhenOffline` error.
-///
-/// To make requests you need to initiate a `DataRepositoryRequest` object and configure it. Then
-/// the repository takes care of the rest. All requests should be added to the `DataRepository` class as
-/// extentions using protocols.
 
 class DataRepository {
     
@@ -85,9 +77,6 @@ class DataRepository {
     /// Performs a network request using a `DataRepositoryRequest` struct. When request completes the result will be
     /// stored in the database for later use.
     ///
-    /// Request type must conform to both `Object` (realm) and `Codable`.  This enables automatic saving to database and json decoding.
-    ///
-    /// On any error the request is failed. If no internet then the stored data will be returned (only for .get requests).
     
     func performRequest<T>(_ request: DataRepositoryRequest<T>) -> Observable<[T]> where T: Codable {
         return Observable.create { (observable) -> Disposable in
